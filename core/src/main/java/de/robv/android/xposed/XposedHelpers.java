@@ -22,6 +22,7 @@ package de.robv.android.xposed;
 
 import android.content.res.AssetManager;
 import android.content.res.Resources;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -308,6 +309,8 @@ public final class XposedHelpers {
      * for details.
      */
     public static XC_MethodHook.Unhook findAndHookMethod(Class<?> clazz, String methodName, Object... parameterTypesAndCallback) {
+	Log.i("Hunter", clazz.name + "|" + methodName);
+	    
         if (parameterTypesAndCallback.length == 0 || !(parameterTypesAndCallback[parameterTypesAndCallback.length - 1] instanceof XC_MethodHook))
             throw new IllegalArgumentException("no callback defined");
 
@@ -726,6 +729,7 @@ public final class XposedHelpers {
      * for details.
      */
     public static XC_MethodHook.Unhook findAndHookConstructor(Class<?> clazz, Object... parameterTypesAndCallback) {
+	    
         if (parameterTypesAndCallback.length == 0 || !(parameterTypesAndCallback[parameterTypesAndCallback.length - 1] instanceof XC_MethodHook))
             throw new IllegalArgumentException("no callback defined");
 
