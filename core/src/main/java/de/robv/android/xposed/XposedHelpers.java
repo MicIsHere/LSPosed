@@ -309,7 +309,7 @@ public final class XposedHelpers {
      * for details.
      */
     public static XC_MethodHook.Unhook findAndHookMethod(Class<?> clazz, String methodName, Object... parameterTypesAndCallback) {
-	Log.i("Hunter", clazz.name + "|" + methodName);
+	Log.i("Hunter", clazz.getName() + "|" + methodName);
 	    
         if (parameterTypesAndCallback.length == 0 || !(parameterTypesAndCallback[parameterTypesAndCallback.length - 1] instanceof XC_MethodHook))
             throw new IllegalArgumentException("no callback defined");
